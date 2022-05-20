@@ -45,11 +45,13 @@ Besides, we provide our trained models and experiment logs at [Google Drive](htt
 - ResNet on ImageNet
 
 ```bash
- python eval.py --pretrain_dir PATH_TO_CHECKPOINTS --gpus 0 --train_batch_size 256 --eval_batch_size 256  --label-smoothing 0.1 --N 2 --M 4 --data_path PATH_TO_DATASETS
+cd ResNet
+python eval.py --pretrain_dir PATH_TO_CHECKPOINTS --gpus 0 --train_batch_size 256 --eval_batch_size 256  --label-smoothing 0.1 --N 2 --M 4 --data_path PATH_TO_DATASETS
 ```
 
 - DeiT-small on ImageNet
 
 ```bash
+cd DeiT-small
 python3 -m torch.distributed.launch --nproc_per_node=4  --use_env main.py --model vit_deit_small_patch16_224 --batch-size 256 --data-path PATH_TO_DATASETS --output_dir PATH_TO_JOB_DIR --resume PATH_TO_CHECKPOINTS --eval
 ```
